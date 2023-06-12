@@ -8,7 +8,6 @@ body {
   font-weight: bold;
   margin: 0;
   padding: 0;
-  text-align: center;
   background-color: darkseagreen;
   color: aliceblue;
 }
@@ -20,6 +19,21 @@ h1 {
   color: aliceblue;
 }
 
+#search-form {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#search-button {
+  border-radius: 8px;
+  
+}
+
 .gif-container {
   align-items: flex-start; 
+  height: 40vh;
+  width: 80%;
+  background-color:seagreen;
+  margin: 0 auto;
 }
+

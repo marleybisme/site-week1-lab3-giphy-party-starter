@@ -1,5 +1,7 @@
 // Global Constants
-const apiKey = "MY_API_KEY"
+const apiKey = "asUHLzVEaxvgREuzPcAWjqhKcAPXTo4v"
+const limit = 9
+// const rating = g
 
 /**
  * Update the DOM to display results from the Giphy API query.
@@ -9,7 +11,16 @@ const apiKey = "MY_API_KEY"
  *
  */
 function displayResults(results) {
-  // YOUR CODE HERE
+  results.forEach(element => {
+    let res = document.createElement('section');
+    res.classList.add('display-results')
+    let img = document.createElement('img')
+    img.classList.add('gif-img');
+    img.src = 'http://api.giphy.com/v1/gifs/search?api_key=' + apiKey + '&q=' + searchTerm;
+
+    res.innerHTML += img.src
+  });
+  
 }
 
 /**
@@ -20,8 +31,13 @@ function displayResults(results) {
  *
  */
 async function getGiphyApiResults(searchTerm) {
-  // YOUR CODE HERE
+  const response = await fetch(searchTerm)
+  const data = await response.json()
+  return data.data
 }
+
+
+const searchform = document.getElementById(search-form)
 
 /**
  * The function responsible for handling all form submission events.
@@ -30,10 +46,11 @@ async function getGiphyApiResults(searchTerm) {
  *
  */
 async function handleFormSubmit(event) {
-  // YOUR CODE HERE
+
+  event.preventDefault()
 }
 
-// searchForm.addEventListener("submit", handleFormSubmit)
+searchForm.addEventListener("submit", handleFormSubmit)
 
 /**
  * Handle fetching the next set of results from the Giphy API
@@ -49,4 +66,6 @@ async function handleShowMore(event) {
 window.onload = function () {
   // YOUR CODE HERE
   // Add any event handlers here
+  displayResults(results)
 }
+
